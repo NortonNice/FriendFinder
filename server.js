@@ -1,9 +1,11 @@
 var express = require("express");
 var app = express();
 var path = require("path");
+var PORT = 3000;
 
 
-//FIX THIS//
-app.listen(process.env.PORT || localhost3000, function(){
-    console.log("Server is running on " + PORT)
+
+
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Server is running on port " + PORT)
 });
