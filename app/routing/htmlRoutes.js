@@ -5,16 +5,15 @@ var path = require("path");
 
 //Your `htmlRoutes.js` file should include two routes:
 // * A GET Route to `/survey` which should display the survey page.
-app.get('/survey', (req, res) => res.sendFile("/survey.html"))//FIND OUT HOW TO SERVE THIS FILE//
+app.get('/survey', function (req, res) {
+    res.sendfile(path.join(__dirname, "../public/survey.html"));
+});
+
 //A default, catch-all route that leads to `home.html` which displays the home page.
+app.get('*', function (req, res) {
+    res.sendfile(path.join(__dirname, "../public/home.html"));
+});
 
-//order matters: the first route that matches the request will be the only one that is run
-
-  
-   app.get("/", function(req, res){
-       res.send("Welcome to the homepage");
-   });
-
-   app.listen(process.env.PORT || 3000, function(){
+app.listen(process.env.PORT || 3000, function () {
     console.log("Server is running on port " + PORT)
 });
